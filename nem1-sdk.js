@@ -6,10 +6,14 @@ import { isHttps, isHttp, isWss, isws } from "./nem1/utils/url.js";
 import { portNo } from "./nem1/utils/portNo.js";
 import { heartbeat } from "./nem1/heartbeat.js";
 import { status } from "./nem1/status.js";
+import { get } from "./nem1/account/get.js";
 
 export const nem1 =　{
     heartbeat: heartbeat,
     status: status,
+    account: {
+        get: get,
+    },
     utils: {
         config: config,
         integratedFetch: integratedFetch,
@@ -20,5 +24,5 @@ export const nem1 =　{
         isWss: isWss,
         isWs: isws,
         portNo: portNo,
-    }
+    },
 }
