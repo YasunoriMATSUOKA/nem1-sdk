@@ -11,10 +11,10 @@ If you wanna use another proxy server, you can set URL into ./nem1/utils/config.
 
 ## apis
 
-1. nem1.heartbeat
-1. nem1.status
+1. [nem1.heartbeat](#nem1.heartbeat)
+1. [nem1.status](#nem1.status)
 1. nem1.account
-    1. nem1.account.get
+    1. [nem1.account.get](#nem1.account.get)
     1. nem1.account.transfers.incoming
     1. nem1.account.transfers.outgoing
     1. nem1.account.transfers.all
@@ -44,10 +44,9 @@ If you wanna use another proxy server, you can set URL into ./nem1/utils/config.
 
 - api
 
-<pre>
 http://nemlovely1.supernode.me:7890/heartbeat
+
 https://nemlovely1.supernode.me:7891/heartbeat
-</pre>
 
 - code example
 
@@ -66,7 +65,7 @@ import { nem1 } from "./nem1-sdk.js";
 - result (JSON)
 
 ```json
-{code: 1, type: 2, message: "ok"}
+{"code":1,"type":2,"message":"ok"}
 ```
 
 - Code Result (All)
@@ -82,10 +81,9 @@ main.js:8 heartbeat(http):  {code: 1, type: 2, message: "ok"}
 
 - api
 
-<pre>
 http://nemlovely1.supernode.me:7890/status
+
 https://nemlovely1.supernode.me:7891/status
-</pre>
 
 - code example
 
@@ -104,7 +102,7 @@ import { nem1 } from "./nem1-sdk.js";
 - result (JSON)
 
 ```json
-{code: 6, type: 4, message: "status"}
+{"code":6,"type":4,"message":"status"}
 ```
 
 - Code Result (All)
@@ -114,4 +112,61 @@ proxyFetch.js:9 {code: 6, type: 4, message: "status"}
 main.js:19 status(https):  {code: 6, type: 4, message: "status"}
 usualFetch.js:6 {code: 6, type: 4, message: "status"}
 main.js:21 status(http):  {code: 6, type: 4, message: "status"}
+```
+
+### nem1.account
+
+#### nem1.account.get
+
+- api
+
+https://nemlovely1.supernode.me:7890/account/get?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
+
+http://nemlovely1.supernode.me:7890/account/get?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
+
+- code example
+
+```js
+import { nem1 } from "./nem1-sdk.js";
+(async () => {
+    const httpsNodeUrl = "https://nemlovely1.supernode.me";
+    const httpNodeUrl = "http://nemlovely1.supernode.me";
+    const address = "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M";
+    const accountGetHttps = await nem1.account.get(httpsNodeUrl, address);
+    console.log("accountGet(https): ", accountGetHttps);
+    const accountGetHttp = await nem1.account.get(httpNodeUrl, address);
+    console.log("accountGet(http): ", accountGetHttp);
+})();
+```
+
+- result (JSON)
+
+```json
+{
+    "meta":{
+        "cosignatories":[],
+        "cosignatoryOf":[],
+        "status":"LOCKED",
+        "remoteStatus":"INACTIVE"
+    },
+    "account":{
+        "address":"NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M",
+        "harvestedBlocks":0,
+        "balance":5000599306,
+        "importance":0.0,
+        "vestedBalance":4891309087,
+        "publicKey":"051beb2871a4dad21bb8b241a49837442a46a5628fc0c3951ae322121508a4a1",
+        "label":null,
+        "multisigInfo":{}
+    }
+}
+```
+
+- Code Result (All)
+
+```
+proxyFetch.js:9 {meta: {…}, account: {…}}
+main.js:30 accountGet(https):  {meta: {…}, account: {…}}
+usualFetch.js:6 {meta: {…}, account: {…}}
+main.js:32 accountGet(http):  {meta: {…}, account: {…}}
 ```
