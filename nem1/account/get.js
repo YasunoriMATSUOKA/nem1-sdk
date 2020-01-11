@@ -1,5 +1,5 @@
-import { integratedFetch } from "./utils/integratedFetch.js";
-import { portNo } from "./utils/portNo.js";
+import { integratedFetch } from "../utils/integratedFetch.js";
+import { portNo } from "../utils/portNo.js";
 
 export const get = async (nodeUrl, rawAddress) => {
     const address = rawAddress; //Todo: Validate address here
