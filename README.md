@@ -66,7 +66,7 @@ import { nem1 } from "./nem1-sdk.js";
 - result (JSON)
 
 ```json
-{"code":1,"type":2,"message":"ok"}
+{code: 1, type: 2, message: "ok"}
 ```
 
 - Code Result (All)
@@ -76,4 +76,42 @@ proxyFetch.js:9 {code: 1, type: 2, message: "ok"}
 main.js:6 heartbeat(https):  {code: 1, type: 2, message: "ok"}
 usualFetch.js:6 {code: 1, type: 2, message: "ok"}
 main.js:8 heartbeat(http):  {code: 1, type: 2, message: "ok"}
+```
+
+### nem1.status
+
+- api
+
+<pre>
+http://nemlovely1.supernode.me:7890/status
+https://nemlovely1.supernode.me:7891/status
+</pre>
+
+- code example
+
+```js
+import { nem1 } from "./nem1-sdk.js";
+(async () => {
+    const httpsNodeUrl = "https://nemlovely1.supernode.me";
+    const httpNodeUrl = "http://nemlovely1.supernode.me";
+    const statusHttps = await nem1.status(httpsNodeUrl);
+    console.log("status(https): ", statusHttps);
+    const statusHttp = await nem1.status(httpNodeUrl);
+    console.log("status(http): ", statusHttp);
+})();
+```
+
+- result (JSON)
+
+```json
+{code: 6, type: 4, message: "status"}
+```
+
+- Code Result (All)
+
+```
+proxyFetch.js:9 {code: 6, type: 4, message: "status"}
+main.js:19 status(https):  {code: 6, type: 4, message: "status"}
+usualFetch.js:6 {code: 6, type: 4, message: "status"}
+main.js:21 status(http):  {code: 6, type: 4, message: "status"}
 ```
