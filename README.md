@@ -63,7 +63,7 @@ import { nem1 } from "./nem1-sdk.js";
 })();
 ```
 
-- code result (JSON)
+- result (JSON)
 
 ```json
 {"code":1,"type":2,"message":"ok"}
