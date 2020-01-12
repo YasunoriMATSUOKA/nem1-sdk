@@ -31,6 +31,17 @@ import { nem1 } from "./nem1-sdk.js";
         const accountGetHttp = await nem1.account.get(httpNodeUrl, address);
         console.log("accountGet(http): ", accountGetHttp);
     })();
+
+    //account/transfers/incoming?address={address}&hash={hash}&id={id}
+    await (async () => {
+        const httpsNodeUrl = "https://nemlovely1.supernode.me";
+        const httpNodeUrl = "http://nemlovely1.supernode.me";
+        const address = "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M";
+        const accountTransfersIncomingHttps = await nem1.account.transfers.incoming(httpsNodeUrl, address);
+        console.log("accountTransfersIncoming(https): ", accountTransfersIncomingHttps);
+        const accountTransfersIncomingHttp = await nem1.account.transfers.incoming(httpNodeUrl, address);
+        console.log("accountTransfersIncoming(http): ", accountTransfersIncomingHttp);
+    })();
 })();
 
 

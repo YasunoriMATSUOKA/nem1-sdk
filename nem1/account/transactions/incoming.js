@@ -3,7 +3,7 @@ import { portNo } from "../../utils/portNo.js";
 
 export const incoming = async (nodeUrl, rawAddress, hash, id) => {
     const address = rawAddress; //Todo: Validate address here
-    let url = nodeUrl + ":" + portNo(nodeUrl) + "/account/get?address=" + address;
+    let url = nodeUrl + ":" + portNo(nodeUrl) + "/account/transfers/incoming?address=" + address;
     if(hash !== undefined){
         url = url + "&hash=" + hash;
     }

@@ -14,7 +14,9 @@ export const nem1 =　{
     status: status,
     account: {
         get: get,
-        transfers: incoming,
+        transfers: {
+            incoming: incoming,
+        },
     },
     utils: {
         config: config,
