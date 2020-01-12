@@ -7,12 +7,14 @@ import { portNo } from "./nem1/utils/portNo.js";
 import { heartbeat } from "./nem1/heartbeat.js";
 import { status } from "./nem1/status.js";
 import { get } from "./nem1/account/get.js";
+import { incoming } from "./nem1/account/transactions/incoming.js";
 
 export const nem1 =　{
     heartbeat: heartbeat,
     status: status,
     account: {
         get: get,
+        transfers: incoming,
     },
     utils: {
         config: config,
