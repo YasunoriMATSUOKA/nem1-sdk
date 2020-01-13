@@ -44,9 +44,9 @@ If you wanna use another proxy server, you can set URL into ./nem1/utils/config.
 
 - api
 
-http://nemlovely1.supernode.me:7890/heartbeat
-
 https://nemlovely1.supernode.me:7891/heartbeat
+
+http://nemlovely1.supernode.me:7890/heartbeat
 
 - code example
 
@@ -81,9 +81,9 @@ main.js:8 heartbeat(http):  {code: 1, type: 2, message: "ok"}
 
 - api
 
-http://nemlovely1.supernode.me:7890/status
-
 https://nemlovely1.supernode.me:7891/status
+
+http://nemlovely1.supernode.me:7890/status
 
 - code example
 
@@ -120,7 +120,7 @@ main.js:21 status(http):  {code: 6, type: 4, message: "status"}
 
 - api
 
-https://nemlovely1.supernode.me:7890/account/get?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
+https://nemlovely1.supernode.me:7891/account/get?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
 
 http://nemlovely1.supernode.me:7890/account/get?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
 
@@ -177,7 +177,7 @@ main.js:32 accountGet(http):  {meta: {…}, account: {…}}
 
 address only (you can get 25 tx history.)
 
-https://nemlovely1.supernode.me:7890/account/transfers/incoming?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
+https://nemlovely1.supernode.me:7891/account/transfers/incoming?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
 
 http://nemlovely1.supernode.me:7890/account/transfers/incoming?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
 
@@ -185,13 +185,13 @@ address and tx id (you can get 25 tx history from the tx id previous)
 
 https://nemlovely1.supernode.me:7891/account/transfers/incoming?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&id=7577105
 
-http://nemlovely1.supernode.me:7891/account/transfers/incoming?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&id=7577105
+http://nemlovely1.supernode.me:7890/account/transfers/incoming?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&id=7577105
 
 address, tx hash and tx id (you can get 25 tx history from the tx id and hash previous)
 
 https://nemlovely1.supernode.me:7891/account/transfers/incoming?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&hash=2291488ec8f855e2854222f0f9fc8a42da2eba894b0a78ae8b368e28f16803c2&id=7562376
 
-http://nemlovely1.supernode.me:7891/account/transfers/incoming?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&hash=2291488ec8f855e2854222f0f9fc8a42da2eba894b0a78ae8b368e28f16803c2&id=7562376
+http://nemlovely1.supernode.me:7890/account/transfers/incoming?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&hash=2291488ec8f855e2854222f0f9fc8a42da2eba894b0a78ae8b368e28f16803c2&id=7562376
 
 - code example
 
@@ -298,19 +298,19 @@ address only (you can get 25 tx history.)
 
 https://nemlovely1.supernode.me:7891/account/transfers/outgoing?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
 
-http://nemlovely1.supernode.me:7891/account/transfers/outgoing?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
+http://nemlovely1.supernode.me:7890/account/transfers/outgoing?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
 
 address and tx id (you can get 25 tx history from the tx id previous)
 
 https://nemlovely1.supernode.me:7891/account/transfers/outgoing?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&id=7742266
 
-http://nemlovely1.supernode.me:7891/account/transfers/outgoing?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&id=7742266
+http://nemlovely1.supernode.me:7890/account/transfers/outgoing?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&id=7742266
 
 address, tx hash and tx id (you can get 25 tx history from the tx id and hash previous)
 
 https://nemlovely1.supernode.me:7891/account/transfers/outgoing?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&hash=4e993678493cdc6b11a79a44e54e5f63b99d1e34348b4687010fc3ed334a88bd&id=7742266
 
-http://nemlovely1.supernode.me:7891/account/transfers/outgoing?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&hash=4e993678493cdc6b11a79a44e54e5f63b99d1e34348b4687010fc3ed334a88bd&id=7742266
+http://nemlovely1.supernode.me:7890/account/transfers/outgoing?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&hash=4e993678493cdc6b11a79a44e54e5f63b99d1e34348b4687010fc3ed334a88bd&id=7742266
 
 - code example
 
@@ -424,19 +424,19 @@ address only (you can get 25 tx history.)
 
 https://nemlovely1.supernode.me:7891/account/transfers/all?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
 
-http://nemlovely1.supernode.me:7891/account/transfers/all?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
+http://nemlovely1.supernode.me:7890/account/transfers/all?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
 
 address and tx id (you can get 25 tx history from the tx id previous)
 
 https://nemlovely1.supernode.me:7891/account/transfers/all?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&id=7742266
 
-http://nemlovely1.supernode.me:7891/account/transfers/all?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&id=7742266
+http://nemlovely1.supernode.me:7890/account/transfers/all?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&id=7742266
 
 address, tx hash and tx id (you can get 25 tx history from the tx id and hash previous)
 
 https://nemlovely1.supernode.me:7891/account/transfers/all?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&hash=4e993678493cdc6b11a79a44e54e5f63b99d1e34348b4687010fc3ed334a88bd&id=7742266
 
-http://nemlovely1.supernode.me:7891/account/transfers/all?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&hash=4e993678493cdc6b11a79a44e54e5f63b99d1e34348b4687010fc3ed334a88bd&id=7742266
+http://nemlovely1.supernode.me:7890/account/transfers/all?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&hash=4e993678493cdc6b11a79a44e54e5f63b99d1e34348b4687010fc3ed334a88bd&id=7742266
 
 - code example
 
@@ -540,4 +540,75 @@ proxyFetch.js:9 {data: Array(25)}
 main.js:108 accountTransfersAllWithHashAndId(https):  {data: Array(25)}
 usualFetch.js:6 {data: Array(25)}
 main.js:110 accountTransfersAllWithHashAndId(http):  {data: Array(25)}
+```
+
+#### nem1.account.unconfirmedTransactions
+
+- api
+
+https://nemlovely1.supernode.me:7891/account/unconfirmedTransactions?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
+
+http://nemlovely1.supernode.me:7890/account/unconfirmedTransactions?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
+
+- code example
+
+```js
+import { nem1 } from "./nem1-sdk.js";
+await (async () => {
+    const httpsNodeUrl = "https://nemlovely1.supernode.me";
+    const httpNodeUrl = "http://nemlovely1.supernode.me";
+    const address = "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M";
+    const unconfirmedTransactionsHttps = await nem1.account.unconfirmedTransactions(httpsNodeUrl, address);
+    console.log("unconfirmedTransactions(https): ", unconfirmedTransactionsHttps);
+    const unconfirmedTransactionsHttp = await nem1.account.unconfirmedTransactions(httpNodeUrl, address);
+    console.log("unconfirmedTransactions(http): ", unconfirmedTransactionsHttp);
+})();
+```
+
+- result (JSON)
+
+```json
+//When there is no unconfirmed transactions.
+{"data":[]}
+
+//When there is an unconfirmed transadtion.
+{
+	"data": [{
+		"meta": {
+			"data": null
+		},
+		"transaction": {
+			"timeStamp": 151302143,
+			"amount": 27700000,
+			"signature": "58b43560936f5937d2b3cbf754fa5a31b8a7a92d6faf91ae44b3a6c79b11c2d60d7582a0248b4997aca2f0a143632d0e92ff6349da48e0fce613c944a5ab9501",
+			"fee": 100000,
+			"recipient": "NAGJG3QFWYZ37LMI7IQPSGQNYADGSJZGJRD2DIYA",
+			"mosaics": [],
+			"type": 257,
+			"deadline": 151388543,
+			"message": {
+				"payload": "35666638666665353933656230373837",
+				"type": 1
+			},
+			"version": 1744830466,
+			"signer": "051beb2871a4dad21bb8b241a49837442a46a5628fc0c3951ae322121508a4a1"
+		}
+	}]
+}
+```
+
+- result (All)
+
+```
+//When there is no unconfirmed transactions.
+proxyFetch.js:9 {data: Array(0)}
+main.js:119 unconfirmedTransactions(https):  {data: Array(0)}
+usualFetch.js:6 {data: Array(0)}
+main.js:121 unconfirmedTransactions(http):  {data: Array(0)}
+
+//When there is an unconfirmed transaction.
+proxyFetch.js:9 {data: Array(1)}
+main.js:119 unconfirmedTransactions(https):  {data: Array(1)}
+usualFetch.js:6 {data: Array(1)}
+main.js:121 unconfirmedTransactions(http):  {data: Array(1)}
 ```
