@@ -158,15 +158,33 @@ import { nem1 } from "./nem1-sdk.js";
         const httpsNodeUrl = "https://nemlovely1.supernode.me";
         const httpNodeUrl = "http://nemlovely1.supernode.me";
         const address = "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M";
-        const accountNamespacePageHttps = await nem1.account.namespace.page(httpsNodeUrl, address);
-        console.log("accountNamespacePage(https): ", accountNamespacePageHttps);
+        //const accountNamespacePageHttps = await nem1.account.namespace.page(httpsNodeUrl, address);
+        //console.log("accountNamespacePage(https): ", accountNamespacePageHttps);
         const accountNamespacePageHttp = await nem1.account.namespace.page(httpNodeUrl, address);
         console.log("accountNamespacePage(http): ", accountNamespacePageHttp);
         const parentNamespace = "crypt-asset-tool";
         console.log("parentNamespace: ", parentNamespace);
-        const accountNamespacePageWithParentHttps = await nem1.account.namespace.page(httpsNodeUrl, address, parentNamespace);
-        console.log("accountNamespacePageWithParent(https): ", accountNamespacePageWithParentHttps);
+        //const accountNamespacePageWithParentHttps = await nem1.account.namespace.page(httpsNodeUrl, address, parentNamespace);
+        //console.log("accountNamespacePageWithParent(https): ", accountNamespacePageWithParentHttps);
         const accountNamespacePageWithParentHttp = await nem1.account.namespace.page(httpNodeUrl, address, parentNamespace);
         console.log("accountNamespacePageWithParent(http): ", accountNamespacePageWithParentHttp);
+    })();
+
+    //account/mosaic/definition/page?address={address}&parent={parentNamespace}
+    //parent is optional.
+    await (async () => {
+        const httpsNodeUrl = "https://nemlovely1.supernode.me";
+        const httpNodeUrl = "http://nemlovely1.supernode.me";
+        const address = "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M";
+        //const accountMosaicDefinitionPageHttps = await nem1.account.mosaic.definition.page(httpsNodeUrl, address);
+        //console.log("accountMosaicDefinitionPage(https): ", accountMosaicDefinitionPageHttps);
+        const accountMosaicDefinitionPageHttp = await nem1.account.mosaic.definition.page(httpNodeUrl, address);
+        console.log("accountMosaicDefinitionPage(http): ", accountMosaicDefinitionPageHttp);
+        const parentNamespace = "salaryman-toushi";
+        console.log("parentNamespace: ", parentNamespace);
+        //const accountMosaicDefinitionPageWithParentNamespaceHttps = await nem1.account.mosaic.definition.page(httpsNodeUrl, address, parentNamespace);
+        //console.log("accountMosaicDefinitionPageWithParentNamespace(https): ", accountMosaicDefinitionPageWithParentNamespaceHttps);
+        const accountMosaicDefinitionPageWithParentNamespaceHttp = await nem1.account.mosaic.definition.page(httpNodeUrl, address, parentNamespace);
+        console.log("accountMosaicDefinitionPageWithParentNamesapce(http): ", accountMosaicDefinitionPageWithParentNamespaceHttp);
     })();
 })();
