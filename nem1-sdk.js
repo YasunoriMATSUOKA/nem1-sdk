@@ -9,6 +9,7 @@ import { status } from "./nem1/status.js";
 import { get } from "./nem1/account/get.js";
 import { incoming } from "./nem1/account/transfers/incoming.js";
 import { outgoing } from "./nem1/account/transfers/outgoing.js";
+import { all } from "./nem1/account/transfers/all.js";
 
 export const nem1 =　{
     heartbeat: heartbeat,
@@ -17,7 +18,8 @@ export const nem1 =　{
         get: get,
         transfers: {
             incoming: incoming,
-            outgoing: outgoing
+            outgoing: outgoing,
+            all: all,
         },
     },
     utils: {

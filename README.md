@@ -415,3 +415,129 @@ main.js:82 accountTransfersOutgoingWithHashAndId(https):  {data: Array(25)}
 usualFetch.js:6 {data: Array(25)}
 main.js:84 accountTransfersOutgoingWithHashAndId(http):  {data: Array(25)}
 ```
+
+#### nem1.account.transfers.all
+
+- api
+
+address only (you can get 25 tx history.)
+
+https://nemlovely1.supernode.me:7891/account/transfers/all?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
+
+http://nemlovely1.supernode.me:7891/account/transfers/all?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
+
+address and tx id (you can get 25 tx history from the tx id previous)
+
+https://nemlovely1.supernode.me:7891/account/transfers/all?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&id=7742266
+
+http://nemlovely1.supernode.me:7891/account/transfers/all?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&id=7742266
+
+address, tx hash and tx id (you can get 25 tx history from the tx id and hash previous)
+
+https://nemlovely1.supernode.me:7891/account/transfers/all?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&hash=4e993678493cdc6b11a79a44e54e5f63b99d1e34348b4687010fc3ed334a88bd&id=7742266
+
+http://nemlovely1.supernode.me:7891/account/transfers/all?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&hash=4e993678493cdc6b11a79a44e54e5f63b99d1e34348b4687010fc3ed334a88bd&id=7742266
+
+- code example
+
+```js
+import { nem1 } from "./nem1-sdk.js";
+await (async () => {
+    const httpsNodeUrl = "https://nemlovely1.supernode.me";
+    const httpNodeUrl = "http://nemlovely1.supernode.me";
+    const address = "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M";
+    const accountTransfersAllHttps = await nem1.account.transfers.all(httpsNodeUrl, address);
+    console.log("accountTransfersAll(https): ", accountTransfersAllHttps);
+    const accountTransfersAllHttp = await nem1.account.transfers.all(httpNodeUrl, address);
+    console.log("accountTransfersAll(http): ", accountTransfersAllHttp);
+    const id = accountTransfersAllHttps.data.slice(-1)[0].meta.id;
+    const hash = accountTransfersAllHttps.data.slice(-1)[0].meta.hash.data;
+    console.log("id: ", id);
+    console.log("hash: ", hash);
+    const accountTransfersAllWithIdHttps = await nem1.account.transfers.all(httpsNodeUrl, address, id);
+    console.log("accountTransfersAllWithId(https): ", accountTransfersAllWithIdHttps);
+    const accountTransfersAllWithIdHttp = await nem1.account.transfers.all(httpNodeUrl, address, id);
+    console.log("accountTransfersAllWithId(http): ", accountTransfersAllWithIdHttp);
+    const accountTransfersAllWithHashAndIdHttps = await nem1.account.transfers.all(httpsNodeUrl, address, hash, id);
+    console.log("accountTransfersAllWithHashAndId(https): ", accountTransfersAllWithHashAndIdHttps);
+    const accountTransfersAllWithHashAndIdHttp = await nem1.account.transfers.all(httpNodeUrl, address, hash, id);
+    console.log("accountTransfersAllWithHashAndId(http): ", accountTransfersAllWithHashAndIdHttp);
+})();
+```
+
+- result (JSON)
+
+```json
+{
+	"data": [{
+		"meta": {
+			"innerHash": {},
+			"id": 7742466,
+			"hash": {
+				"data": "5fb538e651ee77982c4991bf07991aae7cf4a15340d6bfdebdb31eafed9ddbb2"
+			},
+			"height": 2498258
+		},
+		"transaction": {
+			"timeStamp": 151196522,
+			"amount": 27800000,
+			"signature": "408be825c380465d67cb9ebece4c96c43f9782f2260cbdd05c55b335df0b030d4e8fe0f0de171c1a7873f6a344aebefe9709666a177ccc182cc05b4c68075106",
+			"fee": 100000,
+			"recipient": "NAGJG3QFWYZ37LMI7IQPSGQNYADGSJZGJRD2DIYA",
+			"mosaics": [],
+			"type": 257,
+			"deadline": 151282922,
+			"message": {
+				"payload": "35666638666665353933656230373837",
+				"type": 1
+			},
+			"version": 1744830466,
+			"signer": "051beb2871a4dad21bb8b241a49837442a46a5628fc0c3951ae322121508a4a1"
+		}
+	}, {
+		"meta": {
+			"innerHash": {},
+			"id": 7711295,
+			"hash": {
+				"data": "4e993678493cdc6b11a79a44e54e5f63b99d1e34348b4687010fc3ed334a88bd"
+			},
+			"height": 2496807
+		},
+		"transaction": {
+			"timeStamp": 151108271,
+			"amount": 28400000,
+			"signature": "27c1544d063383c69a76bc57095ee63c35574538d37adfbdd98a4511e926228061d3d567182b4fa3c8f8e4371559e1daddb7ebed7879662650aa41299781820c",
+			"fee": 100000,
+			"recipient": "NAGJG3QFWYZ37LMI7IQPSGQNYADGSJZGJRD2DIYA",
+			"mosaics": [],
+			"type": 257,
+			"deadline": 151194671,
+			"message": {
+				"payload": "35666638666665353933656230373837",
+				"type": 1
+			},
+			"version": 1744830466,
+			"signer": "051beb2871a4dad21bb8b241a49837442a46a5628fc0c3951ae322121508a4a1"
+		}
+	}, ...max 25 times repeat]
+}
+```
+
+- Code Result (All)
+
+```
+proxyFetch.js:9 {data: Array(25)}
+main.js:96 accountTransfersAll(https):  {data: Array(25)}
+usualFetch.js:6 {data: Array(25)}
+main.js:98 accountTransfersAll(http):  {data: Array(25)}
+main.js:101 id:  7551438
+main.js:102 hash:  694c89998cb079289f1956ee6006069a93bd02c59ffb776d72d0d726ac3b2caf
+proxyFetch.js:9 {data: Array(25)}
+main.js:104 accountTransfersAllWithId(https):  {data: Array(25)}
+usualFetch.js:6 {data: Array(25)}
+main.js:106 accountTransfersAllWithId(http):  {data: Array(25)}
+proxyFetch.js:9 {data: Array(25)}
+main.js:108 accountTransfersAllWithHashAndId(https):  {data: Array(25)}
+usualFetch.js:6 {data: Array(25)}
+main.js:110 accountTransfersAllWithHashAndId(http):  {data: Array(25)}
+```
