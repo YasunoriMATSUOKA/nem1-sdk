@@ -24,7 +24,7 @@ Linked API can be used. Not linked API is now on development.
     1. [nem1.account.harvests](#nem1.account.harvests)
     1. [nem1.account.importances](#nem1.account.importances)
     1. [nem1.account.namespace.page](#nem1.account.namespace.page)
-    1. nem1.account.mosaic.definition.page
+    1. [nem1.account.mosaic.definition.page](#nem1.account.mosaic.definition.page)
     1. nem1.account.mosaic.owned
 1. nem1.chain
     1. nem1.chain.height
@@ -695,8 +695,9 @@ https://nemlovely1.supernode.me:7891/account/importances
 
 http://nemlovely1.supernode.me:7890/account/importances
 
-    -- caution
-    This API returns so many datas.
+- caution
+
+This API returns very big data.
 
 - code example
 
@@ -782,9 +783,6 @@ https://nemlovely1.supernode.me:7891/account/importances
 
 http://nemlovely1.supernode.me:7890/account/importances
 
-    -- caution
-    This API returns so many datas.
-
 - code example
 
 ```js
@@ -854,4 +852,122 @@ proxyFetch.js:9 {data: Array(2)}
 main.js:168 accountNamespacePageWithParent(https):  {data: Array(2)}
 usualFetch.js:6 {data: Array(2)}
 main.js:170 accountNamespacePageWithParent(http):  {data: Array(2)}
+```
+
+#### nem1.account.mosaic.definition.page
+
+- api
+
+https://nemlovely1.supernode.me:7891/account/mosaic/definition/page?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
+
+http://nemlovely1.supernode.me:7890/account/mosaic/definition/page?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
+
+https://nemlovely1.supernode.me:7891/account/mosaic/definition/page?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&parent=salaryman-toushi
+
+http://nemlovely1.supernode.me:7890/account/mosaic/definition/page?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M&parent=salaryman-toushi
+
+- code example
+
+```js
+import { nem1 } from "./nem1-sdk.js";
+(async () => {
+    const httpsNodeUrl = "https://nemlovely1.supernode.me";
+    const httpNodeUrl = "http://nemlovely1.supernode.me";
+    const address = "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M";
+    const accountMosaicDefinitionPageHttps = await nem1.account.mosaic.definition.page(httpsNodeUrl, address);
+    console.log("accountMosaicDefinitionPage(https): ", accountMosaicDefinitionPageHttps);
+    const accountMosaicDefinitionPageHttp = await nem1.account.mosaic.definition.page(httpNodeUrl, address);
+    console.log("accountMosaicDefinitionPage(http): ", accountMosaicDefinitionPageHttp);
+    const parentNamespace = "salaryman-toushi";
+    console.log("parentNamespace: ", parentNamespace);
+    const accountMosaicDefinitionPageWithParentNamespaceHttps = await nem1.account.mosaic.definition.page(httpsNodeUrl, address, parentNamespace);
+    console.log("accountMosaicDefinitionPageWithParentNamespace(https): ", accountMosaicDefinitionPageWithParentNamespaceHttps);
+    const accountMosaicDefinitionPageWithParentNamespaceHttp = await nem1.account.mosaic.definition.page(httpNodeUrl, address, parentNamespace);
+    console.log("accountMosaicDefinitionPageWithParentNamesapce(http): ", accountMosaicDefinitionPageWithParentNamespaceHttp);
+})();
+```
+
+- result (json)
+
+```json
+{
+	"data": [{
+		"creator": "051beb2871a4dad21bb8b241a49837442a46a5628fc0c3951ae322121508a4a1",
+		"description": "This token is only for test.",
+		"id": {
+			"namespaceId": "crypt-asset-tool.test",
+			"name": "test"
+		},
+		"properties": [{
+			"name": "divisibility",
+			"value": "0"
+		}, {
+			"name": "initialSupply",
+			"value": "100"
+		}, {
+			"name": "supplyMutable",
+			"value": "true"
+		}, {
+			"name": "transferable",
+			"value": "true"
+		}],
+		"levy": {}
+	}, {
+		"creator": "051beb2871a4dad21bb8b241a49837442a46a5628fc0c3951ae322121508a4a1",
+		"description": "This token is only for test.",
+		"id": {
+			"namespaceId": "salaryman-toushi",
+			"name": "test"
+		},
+		"properties": [{
+			"name": "divisibility",
+			"value": "0"
+		}, {
+			"name": "initialSupply",
+			"value": "100"
+		}, {
+			"name": "supplyMutable",
+			"value": "true"
+		}, {
+			"name": "transferable",
+			"value": "true"
+		}],
+		"levy": {}
+	}, {
+		"creator": "051beb2871a4dad21bb8b241a49837442a46a5628fc0c3951ae322121508a4a1",
+		"description": "NEMもくもく会@東京のハンズオンで作成した記念のトークンです。\nThis token is memorial token in meet up Tokyo to learn about NEM.",
+		"id": {
+			"namespaceId": "salaryman-toushi",
+			"name": "mokumoku"
+		},
+		"properties": [{
+			"name": "divisibility",
+			"value": "0"
+		}, {
+			"name": "initialSupply",
+			"value": "20"
+		}, {
+			"name": "supplyMutable",
+			"value": "true"
+		}, {
+			"name": "transferable",
+			"value": "true"
+		}],
+		"levy": {}
+	}]
+}
+```
+
+- result (all)
+
+```
+proxyFetch.js:9 {data: Array(3)}
+main.js:180 accountMosaicDefinitionPage(https):  {data: Array(3)}
+usualFetch.js:6 {data: Array(3)}
+main.js:182 accountMosaicDefinitionPage(http):  {data: Array(3)}
+main.js:184 parentNamespace:  salaryman-toushi
+proxyFetch.js:9 {data: Array(2)}
+main.js:186 accountMosaicDefinitionPageWithParentNamespace(https):  {data: Array(2)}
+usualFetch.js:6 {data: Array(2)}
+main.js:188 accountMosaicDefinitionPageWithParentNamesapce(http):  {data: Array(2)}
 ```
