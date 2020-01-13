@@ -13,12 +13,12 @@ If you wanna use another proxy server, you can set URL into ./nem1/utils/config.
 
 1. [nem1.heartbeat](#nem1.heartbeat)
 1. [nem1.status](#nem1.status)
-1. nem1.account
+1. [nem1.account](#nem1.account)
     1. [nem1.account.get](#nem1.account.get)
     1. [nem1.account.transfers.incoming](#nem1.account.transfers.incoming)
     1. [nem1.account.transfers.outgoing](#nem1.account.transfers.outgoing)
-    1. nem1.account.transfers.all
-    1. nem1.account.unconfirmedTransactions
+    1. [nem1.account.transfers.all](#nem1.account.transfers.all)
+    1. [nem1.account.unconfirmedTransactions](#nem1.account.unconfirmedTransactions)
     1. nem1.account.harvests
     1. nem1.account.namespace.page
     1. nem1.account.mosaic.definition.page
