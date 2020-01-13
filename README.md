@@ -11,6 +11,8 @@ If you wanna use another proxy server, you can set URL into ./nem1/utils/config.
 
 ## apis
 
+Linked API can be used. Not linked API is now on development.
+
 1. [nem1.heartbeat](#nem1.heartbeat)
 1. [nem1.status](#nem1.status)
 1. [nem1.account](#nem1.account)
@@ -21,7 +23,7 @@ If you wanna use another proxy server, you can set URL into ./nem1/utils/config.
     1. [nem1.account.unconfirmedTransactions](#nem1.account.unconfirmedTransactions)
     1. [nem1.account.harvests](#nem1.account.harvests)
     1. [nem1.account.importances](#nem1.account.importances)
-    1. nem1.account.namespace.page
+    1. [nem1.account.namespace.page](#nem1.account.namespace.page)
     1. nem1.account.mosaic.definition.page
     1. nem1.account.mosaic.owned
 1. nem1.chain
@@ -770,4 +772,86 @@ proxyFetch.js:9 {data: Array(763646)}
 main.js:150 accountImportances(https):  {data: Array(763646)}
 usualFetch.js:6 {data: Array(763646)}
 main.js:152 accountImportances(http):  {data: Array(763646)}
+```
+
+#### nem1.account.namespace.page
+
+- api
+
+https://nemlovely1.supernode.me:7891/account/importances
+
+http://nemlovely1.supernode.me:7890/account/importances
+
+    -- caution
+    This API returns so many datas.
+
+- code example
+
+```js
+import { nem1 } from "./nem1-sdk.js";
+(async () => {
+    const httpsNodeUrl = "https://nemlovely1.supernode.me";
+    const httpNodeUrl = "http://nemlovely1.supernode.me";
+    const address = "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M";
+    const accountNamespacePageHttps = await nem1.account.namespace.page(httpsNodeUrl, address);
+    console.log("accountNamespacePage(https): ", accountNamespacePageHttps);
+    const accountNamespacePageHttp = await nem1.account.namespace.page(httpNodeUrl, address);
+    console.log("accountNamespacePage(http): ", accountNamespacePageHttp);
+    const parentNamespace = "crypt-asset-tool";
+    console.log("parentNamespace: ", parentNamespace);
+    const accountNamespacePageWithParentHttps = await nem1.account.namespace.page(httpsNodeUrl, address, parentNamespace);
+    console.log("accountNamespacePageWithParent(https): ", accountNamespacePageWithParentHttps);
+    const accountNamespacePageWithParentHttp = await nem1.account.namespace.page(httpNodeUrl, address, parentNamespace);
+    console.log("accountNamespacePageWithParent(http): ", accountNamespacePageWithParentHttp);
+})();
+```
+
+- result (json)
+
+```json
+{
+	"data": [{
+		"owner": "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M",
+		"fqn": "salaryman-toushi",
+		"height": 2117209
+	}, {
+		"owner": "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M",
+		"fqn": "crypt-payment",
+		"height": 2500214
+	}, {
+		"owner": "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M",
+		"fqn": "crypt-asset-tool.crypt-payment",
+		"height": 2500211
+	}, {
+		"owner": "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M",
+		"fqn": "next-web-tech",
+		"height": 2500251
+	}, {
+		"owner": "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M",
+		"fqn": "crypt-asset-tool",
+		"height": 2500211
+	}, {
+		"owner": "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M",
+		"fqn": "crypto-payment",
+		"height": 2500209
+	}, {
+		"owner": "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M",
+		"fqn": "crypt-asset-tool.test",
+		"height": 2500211
+	}]
+}
+```
+
+- result (all)
+
+```
+proxyFetch.js:9 {data: Array(7)}
+main.js:162 accountNamespacePage(https):  {data: Array(7)}
+usualFetch.js:6 {data: Array(7)}
+main.js:164 accountNamespacePage(http):  {data: Array(7)}
+main.js:166 parentNamespace:  crypt-asset-tool
+proxyFetch.js:9 {data: Array(2)}
+main.js:168 accountNamespacePageWithParent(https):  {data: Array(2)}
+usualFetch.js:6 {data: Array(2)}
+main.js:170 accountNamespacePageWithParent(http):  {data: Array(2)}
 ```
