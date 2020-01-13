@@ -33,6 +33,7 @@ import { nem1 } from "./nem1-sdk.js";
     })();
 
     //account/transfers/incoming?address={address}&hash={hash}&id={id}
+    //hash and id are optional.
     //id is recomended. hash is not recomended.
     //because hash can't be used for old transactions not chached in many nodes.
     //if you wanna use hash, you should also use id.
@@ -59,6 +60,7 @@ import { nem1 } from "./nem1-sdk.js";
     })();
 
     //account/transfers/outgoing?address={address}&hash={hash}&id={id}
+    //hash and id are optional.
     //id is recomended. hash is not recomended.
     //because hash can't be used for old transactions not chached in many nodes.
     //if you wanna use hash, you should also use id.
@@ -85,6 +87,7 @@ import { nem1 } from "./nem1-sdk.js";
     })();
 
     //account/transfers/all?address={address}&hash={hash}&id={id}
+    //hash and id are optional.
     //id is recomended. hash is not recomended.
     //because hash can't be used for old transactions not chached in many nodes.
     //if you wanna use hash, you should also use id.
@@ -119,5 +122,23 @@ import { nem1 } from "./nem1-sdk.js";
         //console.log("unconfirmedTransactions(https): ", unconfirmedTransactionsHttps);
         const unconfirmedTransactionsHttp = await nem1.account.unconfirmedTransactions(httpNodeUrl, address);
         console.log("unconfirmedTransactions(http): ", unconfirmedTransactionsHttp);
+    })();
+
+    //account/harvests?address={address}&id={id}
+    //id is optional.
+    await (async () => {
+        const httpsNodeUrl = "https://nemlovely1.supernode.me";
+        const httpNodeUrl = "http://nemlovely1.supernode.me";
+        const address = "NCJZ2B4GU3XHL4PQ63CPOASKEDSHYQ7MZ5FTLAA2";
+        //const accountHarvestsHttps = await nem1.account.harvests(httpsNodeUrl, address);
+        //console.log("accountHarvests(https): ", accountHarvestsHttps);
+        const accountHarvestsHttp = await nem1.account.harvests(httpNodeUrl, address);
+        console.log("accountHarvests(http): ", accountHarvestsHttp);
+        const id = accountHarvestsHttp.data.slice(-2)[0].id;
+        console.log("id: ", id);
+        //const accountHarvestsWithIdHttps = await nem1.account.harvests(httpsNodeUrl, address, id);
+        //console.log("accountHarvestsWithId(https): ", accountHarvestsWithIdHttps);
+        const accountHarvestsWithIdHttp = await nem1.account.harvests(httpNodeUrl, address, id);
+        console.log("accountHarvestsWithId(http): ", accountHarvestsWithIdHttp);
     })();
 })();
