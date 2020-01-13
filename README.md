@@ -19,7 +19,8 @@ If you wanna use another proxy server, you can set URL into ./nem1/utils/config.
     1. [nem1.account.transfers.outgoing](#nem1.account.transfers.outgoing)
     1. [nem1.account.transfers.all](#nem1.account.transfers.all)
     1. [nem1.account.unconfirmedTransactions](#nem1.account.unconfirmedTransactions)
-    1. nem1.account.harvests
+    1. [nem1.account.harvests](#nem1.account.harvests)
+    1. nem1.account.importances
     1. nem1.account.namespace.page
     1. nem1.account.mosaic.definition.page
     1. nem1.account.mosaic.owned
@@ -62,13 +63,13 @@ import { nem1 } from "./nem1-sdk.js";
 })();
 ```
 
-- result (JSON)
+- result (json)
 
 ```json
 {"code":1,"type":2,"message":"ok"}
 ```
 
-- Code Result (All)
+- result (all)
 
 ```
 proxyFetch.js:9 {code: 1, type: 2, message: "ok"}
@@ -99,13 +100,13 @@ import { nem1 } from "./nem1-sdk.js";
 })();
 ```
 
-- result (JSON)
+- result (json)
 
 ```json
 {"code":6,"type":4,"message":"status"}
 ```
 
-- Code Result (All)
+- result (all)
 
 ```
 proxyFetch.js:9 {code: 6, type: 4, message: "status"}
@@ -139,7 +140,7 @@ import { nem1 } from "./nem1-sdk.js";
 })();
 ```
 
-- result (JSON)
+- result (json)
 
 ```json
 {
@@ -162,7 +163,7 @@ import { nem1 } from "./nem1-sdk.js";
 }
 ```
 
-- Code Result (All)
+- result (all)
 
 ```
 proxyFetch.js:9 {meta: {…}, account: {…}}
@@ -220,7 +221,7 @@ import { nem1 } from "./nem1-sdk.js";
 })();
 ```
 
-- result (JSON)
+- result (json)
 
 ```json
 {
@@ -271,7 +272,7 @@ import { nem1 } from "./nem1-sdk.js";
 }
 ```
 
-- Code Result (All)
+- result (all)
 
 ```
 proxyFetch.js:9 {data: Array(25)}
@@ -339,7 +340,7 @@ import { nem1 } from "./nem1-sdk.js";
 })();
 ```
 
-- result (JSON)
+- result (json)
 
 ```json
 {
@@ -397,7 +398,7 @@ import { nem1 } from "./nem1-sdk.js";
 }
 ```
 
-- Code Result (All)
+- result (all)
 
 ```
 proxyFetch.js:9 {data: Array(25)}
@@ -465,7 +466,7 @@ await (async () => {
 })();
 ```
 
-- result (JSON)
+- result (json)
 
 ```json
 {
@@ -523,7 +524,7 @@ await (async () => {
 }
 ```
 
-- Code Result (All)
+- result (json)
 
 ```
 proxyFetch.js:9 {data: Array(25)}
@@ -565,7 +566,7 @@ await (async () => {
 })();
 ```
 
-- result (JSON)
+- result (json)
 
 ```json
 //When there is no unconfirmed transactions.
@@ -597,7 +598,7 @@ await (async () => {
 }
 ```
 
-- result (All)
+- result (all)
 
 ```
 //When there is no unconfirmed transactions.
@@ -611,4 +612,75 @@ proxyFetch.js:9 {data: Array(1)}
 main.js:119 unconfirmedTransactions(https):  {data: Array(1)}
 usualFetch.js:6 {data: Array(1)}
 main.js:121 unconfirmedTransactions(http):  {data: Array(1)}
+```
+
+#### nem1.account.harvests
+
+- api
+
+address only (you can get 25 harvests history.)
+
+https://nemlovely1.supernode.me:7891/account/harvests?address=NCJZ2B4GU3XHL4PQ63CPOASKEDSHYQ7MZ5FTLAA2
+
+http://nemlovely1.supernode.me:7890/account/harvests?address=NCJZ2B4GU3XHL4PQ63CPOASKEDSHYQ7MZ5FTLAA2
+
+address and harvest id (you can get 25 harvests history from the harvest id previous)
+
+https://nemlovely1.supernode.me:7891/account/harvests?address=NCJZ2B4GU3XHL4PQ63CPOASKEDSHYQ7MZ5FTLAA2&id=2218012
+
+http://nemlovely1.supernode.me:7890/account/transfers/all?address=NCJZ2B4GU3XHL4PQ63CPOASKEDSHYQ7MZ5FTLAA2&id=2218012
+
+- code example
+
+```js
+import { nem1 } from "./nem1-sdk.js";
+(async () => {
+    const httpsNodeUrl = "https://nemlovely1.supernode.me";
+    const httpNodeUrl = "http://nemlovely1.supernode.me";
+    const address = "NCJZ2B4GU3XHL4PQ63CPOASKEDSHYQ7MZ5FTLAA2";
+    const accountHarvestsHttps = await nem1.account.harvests(httpsNodeUrl, address);
+    console.log("accountHarvests(https): ", accountHarvestsHttps);
+    const accountHarvestsHttp = await nem1.account.harvests(httpNodeUrl, address);
+    console.log("accountHarvests(http): ", accountHarvestsHttp);
+    const id = accountHarvestsHttp.data.slice(-2)[0].id;
+    console.log("id: ", id);
+    const accountHarvestsWithIdHttps = await nem1.account.harvests(httpsNodeUrl, address, id);
+    console.log("accountHarvestsWithId(https): ", accountHarvestsWithIdHttps);
+    const accountHarvestsWithIdHttp = await nem1.account.harvests(httpNodeUrl, address, id);
+    console.log("accountHarvestsWithId(http): ", accountHarvestWithIdHttp);
+})();
+```
+
+- result (json)
+
+```json
+{
+	"data": [{
+		"timeStamp": 149802915,
+		"difficulty": 96341609702434,
+		"totalFee": 50000,
+		"id": 2487985,
+		"height": 2475226
+	}, {
+		"timeStamp": 146544016,
+		"difficulty": 99497620269574,
+		"totalFee": 500000,
+		"id": 2432855,
+		"height": 2421349
+	}, ...max 25 times repeat]
+}
+```
+
+- result (all)
+
+```
+proxyFetch.js:9 {data: Array(16)}
+main.js:134 accountHarvests(https):  {data: Array(16)}
+usualFetch.js:6 {data: Array(16)}
+main.js:136 accountHarvests(http):  {data: Array(16)}
+main.js:138 id:  2218012
+proxyFetch.js:9 {data: Array(1)}
+main.js:140 accountHarvestWithId(https):  {data: Array(1)}
+usualFetch.js:6 {data: Array(1)}
+main.js:142 accountHarvestWithId(http):  {data: Array(1)}
 ```

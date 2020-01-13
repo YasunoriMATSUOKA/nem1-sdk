@@ -11,6 +11,7 @@ import { incoming } from "./nem1/account/transfers/incoming.js";
 import { outgoing } from "./nem1/account/transfers/outgoing.js";
 import { all } from "./nem1/account/transfers/all.js";
 import { unconfirmedTransactions } from "./nem1/account/unconfimedTransactions.js";
+import { harvests } from "./nem1/account/harvests.js";
 
 export const nem1 =　{
     heartbeat: heartbeat,
@@ -23,6 +24,7 @@ export const nem1 =　{
             all: all,
         },
         unconfirmedTransactions: unconfirmedTransactions,
+        harvests: harvests,
     },
     utils: {
         config: config,
