@@ -15,6 +15,7 @@ import { harvests } from "./nem1/account/harvests.js";
 import { importances } from "./nem1/account/importances.js";
 import { namespacePage } from "./nem1/account/namespace/page.js";
 import { mosaicDefinitionPage } from "./nem1/account/mosaic/definition/page.js";
+import { mosaicOwned } from "./nem1/account/mosaic/owned.js";
 
 export const nem1 =　{
     heartbeat: heartbeat,
@@ -36,6 +37,7 @@ export const nem1 =　{
             definition: {
                 page: mosaicDefinitionPage,
             },
+            owned: mosaicOwned,
         },
     },
     utils: {

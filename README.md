@@ -25,7 +25,7 @@ Linked API can be used. Not linked API is now on development.
     1. [nem1.account.importances](#nem1.account.importances)
     1. [nem1.account.namespace.page](#nem1.account.namespace.page)
     1. [nem1.account.mosaic.definition.page](#nem1.account.mosaic.definition.page)
-    1. nem1.account.mosaic.owned
+    1. [nem1.account.mosaic.owned](#nem1.account.mosaic.owned)
 1. nem1.chain
     1. nem1.chain.height
     1. nem1.chain.score
@@ -970,4 +970,110 @@ proxyFetch.js:9 {data: Array(2)}
 main.js:186 accountMosaicDefinitionPageWithParentNamespace(https):  {data: Array(2)}
 usualFetch.js:6 {data: Array(2)}
 main.js:188 accountMosaicDefinitionPageWithParentNamesapce(http):  {data: Array(2)}
+```
+
+#### nem1.account.mosaic.owned
+
+- api
+
+https://nemlovely1.supernode.me:7891/account/mosaic/owned?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
+
+http://nemlovely1.supernode.me:7890/account/mosaic/owned?address=NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M
+
+- code example
+
+```js
+import { nem1 } from "./nem1-sdk.js";
+(async () => {
+    const httpsNodeUrl = "https://nemlovely1.supernode.me";
+    const httpNodeUrl = "http://nemlovely1.supernode.me";
+    const address = "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M";
+    const accountMosaicOwnedHttps = await nem1.account.mosaic.owned(httpsNodeUrl, address);
+    console.log("accountMosaicOwned(https): ", accountMosaicOwnedHttps);
+    const accountMosaicOwnedHttp = await nem1.account.mosaic.owned(httpNodeUrl, address);
+    console.log("accountMosaicOwned(http): ", accountMosaicOwnedHttp);
+})();
+```
+
+- result (json)
+
+```json
+{
+	"data": [{
+		"quantity": 4448299306,
+		"mosaicId": {
+			"namespaceId": "nem",
+			"name": "xem"
+		}
+	}, {
+		"quantity": 2,
+		"mosaicId": {
+			"namespaceId": "opening-line",
+			"name": "fific"
+		}
+	}, {
+		"quantity": 12,
+		"mosaicId": {
+			"namespaceId": "salaryman-toushi",
+			"name": "mokumoku"
+		}
+	}, {
+		"quantity": 100,
+		"mosaicId": {
+			"namespaceId": "salaryman-toushi",
+			"name": "test"
+		}
+	}, {
+		"quantity": 100000000,
+		"mosaicId": {
+			"namespaceId": "prx",
+			"name": "xpx"
+		}
+	}, {
+		"quantity": 100,
+		"mosaicId": {
+			"namespaceId": "crypt-asset-tool.test",
+			"name": "test"
+		}
+	}, {
+		"quantity": 1,
+		"mosaicId": {
+			"namespaceId": "shizui",
+			"name": "chiroru"
+		}
+	}, {
+		"quantity": 1,
+		"mosaicId": {
+			"namespaceId": "tomato",
+			"name": "ripe"
+		}
+	}, {
+		"quantity": 1,
+		"mosaicId": {
+			"namespaceId": "happiness",
+			"name": "kujibiki2019"
+		}
+	}, {
+		"quantity": 100000000,
+		"mosaicId": {
+			"namespaceId": "comsa",
+			"name": "cms"
+		}
+	}, {
+		"quantity": 1000000,
+		"mosaicId": {
+			"namespaceId": "hase",
+			"name": "coin"
+		}
+	}]
+}
+```
+
+- result (all)
+
+```
+proxyFetch.js:9 {data: Array(11)}
+main.js:197 accountMosaicOwned(https):  {data: Array(11)}
+usualFetch.js:6 {data: Array(11)}
+main.js:199 accountMosaicOwned(http):  {data: Array(11)}
 ```
