@@ -83,4 +83,30 @@ import { nem1 } from "./nem1-sdk.js";
         const accountTransfersOutgoingWithHashAndIdHttp = await nem1.account.transfers.outgoing(httpNodeUrl, address, hash, id);
         console.log("accountTransfersOutgoingWithHashAndId(http): ", accountTransfersOutgoingWithHashAndIdHttp);
     })();
+
+    //account/transfers/all?address={address}&hash={hash}&id={id}
+    //id is recomended. hash is not recomended.
+    //because hash can't be used for old transactions not chached in many nodes.
+    //if you wanna use hash, you should also use id.
+    await (async () => {
+        const httpsNodeUrl = "https://nemlovely1.supernode.me";
+        const httpNodeUrl = "http://nemlovely1.supernode.me";
+        const address = "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M";
+        const accountTransfersAllHttps = await nem1.account.transfers.all(httpsNodeUrl, address);
+        console.log("accountTransfersAll(https): ", accountTransfersAllHttps);
+        const accountTransfersAllHttp = await nem1.account.transfers.all(httpNodeUrl, address);
+        console.log("accountTransfersAll(http): ", accountTransfersAllHttp);
+        const id = accountTransfersAllHttps.data.slice(-1)[0].meta.id;
+        const hash = accountTransfersAllHttps.data.slice(-1)[0].meta.hash.data;
+        console.log("id: ", id);
+        console.log("hash: ", hash);
+        const accountTransfersAllWithIdHttps = await nem1.account.transfers.all(httpsNodeUrl, address, id);
+        console.log("accountTransfersAllWithId(https): ", accountTransfersAllWithIdHttps);
+        const accountTransfersAllWithIdHttp = await nem1.account.transfers.all(httpNodeUrl, address, id);
+        console.log("accountTransfersAllWithId(http): ", accountTransfersAllWithIdHttp);
+        const accountTransfersAllWithHashAndIdHttps = await nem1.account.transfers.all(httpsNodeUrl, address, hash, id);
+        console.log("accountTransfersAllWithHashAndId(https): ", accountTransfersAllWithHashAndIdHttps);
+        const accountTransfersAllWithHashAndIdHttp = await nem1.account.transfers.all(httpNodeUrl, address, hash, id);
+        console.log("accountTransfersAllWithHashAndId(http): ", accountTransfersAllWithHashAndIdHttp);
+    })();
 })();
