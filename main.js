@@ -187,4 +187,15 @@ import { nem1 } from "./nem1-sdk.js";
         const accountMosaicDefinitionPageWithParentNamespaceHttp = await nem1.account.mosaic.definition.page(httpNodeUrl, address, parentNamespace);
         console.log("accountMosaicDefinitionPageWithParentNamesapce(http): ", accountMosaicDefinitionPageWithParentNamespaceHttp);
     })();
+
+    //account/mosaic/owned?address={address}
+    await (async () => {
+        const httpsNodeUrl = "https://nemlovely1.supernode.me";
+        const httpNodeUrl = "http://nemlovely1.supernode.me";
+        const address = "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M";
+        //const accountMosaicOwnedHttps = await nem1.account.mosaic.owned(httpsNodeUrl, address);
+        //console.log("accountMosaicOwned(https): ", accountMosaicOwnedHttps);
+        const accountMosaicOwnedHttp = await nem1.account.mosaic.owned(httpNodeUrl, address);
+        console.log("accountMosaicOwned(http): ", accountMosaicOwnedHttp);
+    })();
 })();
