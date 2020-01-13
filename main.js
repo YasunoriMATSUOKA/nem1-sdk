@@ -141,4 +141,14 @@ import { nem1 } from "./nem1-sdk.js";
         const accountHarvestsWithIdHttp = await nem1.account.harvests(httpNodeUrl, address, id);
         console.log("accountHarvestsWithId(http): ", accountHarvestsWithIdHttp);
     })();
+
+    //account/importances
+    await (async () => {
+        const httpsNodeUrl = "https://nemlovely1.supernode.me";
+        const httpNodeUrl = "http://nemlovely1.supernode.me";
+        //const accountImportancesHttps = await nem1.account.importances(httpsNodeUrl);
+        //console.log("accountImportances(https): ", accountImportancesHttps);
+        const accountImportancesHttp = await nem1.account.importances(httpNodeUrl);
+        console.log("accountImportances(http): ", accountImportancesHttp);
+    })();
 })();
