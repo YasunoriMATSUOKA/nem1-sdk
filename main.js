@@ -151,4 +151,22 @@ import { nem1 } from "./nem1-sdk.js";
         const accountImportancesHttp = await nem1.account.importances(httpNodeUrl);
         console.log("accountImportances(http): ", accountImportancesHttp);
     })();
+
+    //account/namespace/page?address={address}&parent={parentNamespace}
+    //parent is optional.
+    await (async () => {
+        const httpsNodeUrl = "https://nemlovely1.supernode.me";
+        const httpNodeUrl = "http://nemlovely1.supernode.me";
+        const address = "NAX3EP4EKUMLH4T3N7GJSTQDG2AMUK5T26P5EA2M";
+        const accountNamespacePageHttps = await nem1.account.namespace.page(httpsNodeUrl, address);
+        console.log("accountNamespacePage(https): ", accountNamespacePageHttps);
+        const accountNamespacePageHttp = await nem1.account.namespace.page(httpNodeUrl, address);
+        console.log("accountNamespacePage(http): ", accountNamespacePageHttp);
+        const parentNamespace = "crypt-asset-tool";
+        console.log("parentNamespace: ", parentNamespace);
+        const accountNamespacePageWithParentHttps = await nem1.account.namespace.page(httpsNodeUrl, address, parentNamespace);
+        console.log("accountNamespacePageWithParent(https): ", accountNamespacePageWithParentHttps);
+        const accountNamespacePageWithParentHttp = await nem1.account.namespace.page(httpNodeUrl, address, parentNamespace);
+        console.log("accountNamespacePageWithParent(http): ", accountNamespacePageWithParentHttp);
+    })();
 })();
