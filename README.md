@@ -13,19 +13,19 @@ If you wanna use another proxy server, you can set URL into ./nem1/utils/config.
 
 Linked API can be used. Not linked API is now on development.
 
-1. [nem1.heartbeat](#nem1.heartbeat)
-1. [nem1.status](#nem1.status)
-1. [nem1.account](#nem1.account)
-    1. [nem1.account.get](#nem1.account.get)
-    1. [nem1.account.transfers.incoming](#nem1.account.transfers.incoming)
-    1. [nem1.account.transfers.outgoing](#nem1.account.transfers.outgoing)
-    1. [nem1.account.transfers.all](#nem1.account.transfers.all)
-    1. [nem1.account.unconfirmedTransactions](#nem1.account.unconfirmedTransactions)
-    1. [nem1.account.harvests](#nem1.account.harvests)
-    1. [nem1.account.importances](#nem1.account.importances)
-    1. [nem1.account.namespace.page](#nem1.account.namespace.page)
-    1. [nem1.account.mosaic.definition.page](#nem1.account.mosaic.definition.page)
-    1. [nem1.account.mosaic.owned](#nem1.account.mosaic.owned)
+1. [nem1.heartbeat](#nem1heartbeat)
+1. [nem1.status](#nem1status)
+1. [nem1.account](#nem1account)
+    1. [nem1.account.get](#nem1accountget)
+    1. [nem1.account.transfers.incoming](#nem1accounttransfersincoming)
+    1. [nem1.account.transfers.outgoing](#nem1accounttransfersoutgoing)
+    1. [nem1.account.transfers.all](#nem1accounttransfersall)
+    1. [nem1.account.unconfirmedTransactions](#nem1accountunconfirmedTransactions)
+    1. [nem1.account.harvests](#nem1accountharvests)
+    1. [nem1.account.importances](#nem1accountimportances)
+    1. [nem1.account.namespace.page](#nem1accountnamespacepage)
+    1. [nem1.account.mosaic.definition.page](#nem1accountmosaicdefinitionpage)
+    1. [nem1.account.mosaic.owned](#nem1accountmosaicowned)
 1. nem1.chain
     1. nem1.chain.height
     1. nem1.chain.score
