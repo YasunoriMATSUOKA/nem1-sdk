@@ -12,6 +12,7 @@ import { outgoing } from "./nem1/account/transfers/outgoing.js";
 import { all } from "./nem1/account/transfers/all.js";
 import { unconfirmedTransactions } from "./nem1/account/unconfimedTransactions.js";
 import { harvests } from "./nem1/account/harvests.js";
+import { importances } from "./nem1/account/importances.js";
 
 export const nem1 =　{
     heartbeat: heartbeat,
@@ -25,6 +26,7 @@ export const nem1 =　{
         },
         unconfirmedTransactions: unconfirmedTransactions,
         harvests: harvests,
+        importances: importances,
     },
     utils: {
         config: config,

@@ -20,7 +20,7 @@ If you wanna use another proxy server, you can set URL into ./nem1/utils/config.
     1. [nem1.account.transfers.all](#nem1.account.transfers.all)
     1. [nem1.account.unconfirmedTransactions](#nem1.account.unconfirmedTransactions)
     1. [nem1.account.harvests](#nem1.account.harvests)
-    1. nem1.account.importances
+    1. [nem1.account.importances](#nem1.account.importances)
     1. nem1.account.namespace.page
     1. nem1.account.mosaic.definition.page
     1. nem1.account.mosaic.owned
@@ -683,4 +683,91 @@ proxyFetch.js:9 {data: Array(1)}
 main.js:140 accountHarvestWithId(https):  {data: Array(1)}
 usualFetch.js:6 {data: Array(1)}
 main.js:142 accountHarvestWithId(http):  {data: Array(1)}
+```
+
+#### nem1.account.importances
+
+- api
+
+https://nemlovely1.supernode.me:7891/account/importances
+
+http://nemlovely1.supernode.me:7890/account/importances
+
+    -- caution
+    This API returns so many datas.
+
+- code example
+
+```js
+import { nem1 } from "./nem1-sdk.js";
+await (async () => {
+    const httpsNodeUrl = "https://nemlovely1.supernode.me";
+    const httpNodeUrl = "http://nemlovely1.supernode.me";
+    const accountImportancesHttps = await nem1.account.importances(httpsNodeUrl);
+    console.log("accountImportances(https): ", accountImportancesHttps);
+    const accountImportancesHttp = await nem1.account.importances(httpNodeUrl);
+    console.log("accountImportances(http): ", accountImportancesHttp);
+})();
+```
+
+- result (json)
+
+```json
+{
+    "data":[
+        {
+            "address":"NDUY7RHJIU62CEMQKFDZPKYAM34YOJN6EMQOQTCB",
+            "importance":{
+                "isSet":0
+            }
+        }, {
+            "address":"NDXBZ4MXDT2NZF35LU76QERWD4XSGNQTBLAQK2XX",
+            "importance":{
+                "isSet":0
+            }
+        }, {
+            "address":"NDUQZNOPQNVOB2KVMSTU6SWK7D5V2UJNYCA3PUYM",
+            "importance":{
+                "isSet":0
+            }
+        }, {
+            "address":"NB36G62KEW736CARASY52J2HPC4QFFYN6SAI3VOZ",
+            "importance":{
+                "isSet":0
+            }
+        }, {
+            "address":"NDFMTC2FKYFZGRSJ2GWTWJHINE3M76UCHK6I7KDA",
+            "importance":{
+                "isSet":0
+            }
+        }, {
+            "address":"NB7YXGBFSWJ55P6WGARZZLK4HJT6HTFDPANLFWRW",
+            "importance":{
+                "isSet":0
+            }
+        }, {
+            "address":"NAY5MLD233AF3Z7E2TQAEMO7THL75NDWQUA6ELVY",
+            "importance":{
+                "score":1.2164646962218025E-5,
+                "ev":6.352851984647543E-5,
+                "isSet":1,
+                "height":2500076
+            }
+        }, {
+            "address":"NBN72P4YU4LR5VC76XFRGMFRHWCNBJTVKQBZ3FRX",
+            "importance":{
+                "isSet":0
+            }
+        }, ...so many times repeat
+    ]
+}
+```
+
+- result (all)
+
+```
+proxyFetch.js:9 {data: Array(763646)}
+main.js:150 accountImportances(https):  {data: Array(763646)}
+usualFetch.js:6 {data: Array(763646)}
+main.js:152 accountImportances(http):  {data: Array(763646)}
 ```
