@@ -17,6 +17,7 @@ import { namespacePage } from "./nem1/account/namespace/page.js";
 import { mosaicDefinitionPage } from "./nem1/account/mosaic/definition/page.js";
 import { mosaicOwned } from "./nem1/account/mosaic/owned.js";
 import { chainHeight } from "./nem1/chain/height.js";
+import { chainScore } from "./nem1/chain/score.js";
 
 export const nem1 =　{
     heartbeat: heartbeat,
@@ -43,6 +44,7 @@ export const nem1 =　{
     },
     chain: {
         height: chainHeight,
+        score: chainScore,
     },
     utils: {
         config: config,

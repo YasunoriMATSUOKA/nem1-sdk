@@ -28,7 +28,7 @@ Linked API can be used. Not linked API is now on development.
     1. [nem1.account.mosaic.owned](#nem1accountmosaicowned)
 1. [nem1.chain](#nem1chain)
     1. [nem1.chain.height](#nem1chainheight)
-    1. nem1.chain.score
+    1. [nem1.chain.score](#nem1chainscore)
     1. nem1.chain.last-block
 1. nem1.node
     1. nem1.node.info
@@ -1115,4 +1115,41 @@ proxyFetch.js:9 {height: 2501766}
 main.js:207 chainHeight(https):  {height: 2501766}
 usualFetch.js:6 {height: 2501766}
 main.js:209 chainHeight(http):  {height: 2501766}
+```
+
+#### nem1.chain.score
+
+- api
+
+https://nemlovely1.supernode.me:7891/chain/score
+
+http://nemlovely1.supernode.me:7890/chain/score
+
+- code example
+
+```js
+import { nem1 } from "./nem1-sdk.js";
+(async () => {
+    const httpsNodeUrl = "https://nemlovely1.supernode.me";
+    const httpNodeUrl = "http://nemlovely1.supernode.me";
+    const chainScoreHttps = await nem1.chain.score(httpsNodeUrl);
+    console.log("chainScore(https): ", chainScoreHttps);
+    const chainScoreHttp = await nem1.chain.score(httpNodeUrl);
+    console.log("chainScore(http): ", chainScoreHttp);
+})();
+```
+
+- result (json)
+
+```json
+{"score":"0e8604914c523c591e"}
+```
+
+- result (all)
+
+```
+proxyFetch.js:9 {score: "0e86043d175e83ed9e"}
+main.js:217 chainScore(https):  {score: "0e86043d175e83ed9e"}
+usualFetch.js:6 {score: "0e86043d175e83ed9e"}
+main.js:219 chainScore(http):  {score: "0e86043d175e83ed9e"}
 ```
