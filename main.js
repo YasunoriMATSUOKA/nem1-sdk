@@ -198,4 +198,14 @@ import { nem1 } from "./nem1-sdk.js";
         const accountMosaicOwnedHttp = await nem1.account.mosaic.owned(httpNodeUrl, address);
         console.log("accountMosaicOwned(http): ", accountMosaicOwnedHttp);
     })();
+
+    //chain/height
+    await (async () => {
+        const httpsNodeUrl = "https://nemlovely1.supernode.me";
+        const httpNodeUrl = "http://nemlovely1.supernode.me";
+        //const chainHeightHttps = await nem1.chain.height(httpsNodeUrl);
+        //console.log("chainHeight(https): ", chainHeightHttps);
+        const chainHeightHttp = await nem1.chain.height(httpNodeUrl);
+        console.log("chainHeight(http): ", chainHeightHttp);
+    })();
 })();

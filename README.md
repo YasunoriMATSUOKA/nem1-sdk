@@ -26,8 +26,8 @@ Linked API can be used. Not linked API is now on development.
     1. [nem1.account.namespace.page](#nem1accountnamespacepage)
     1. [nem1.account.mosaic.definition.page](#nem1accountmosaicdefinitionpage)
     1. [nem1.account.mosaic.owned](#nem1accountmosaicowned)
-1. nem1.chain
-    1. nem1.chain.height
+1. [nem1.chain](#nem1chain)
+    1. [nem1.chain.height](#nem1chainheight)
     1. nem1.chain.score
     1. nem1.chain.last-block
 1. nem1.node
@@ -1076,4 +1076,43 @@ proxyFetch.js:9 {data: Array(11)}
 main.js:197 accountMosaicOwned(https):  {data: Array(11)}
 usualFetch.js:6 {data: Array(11)}
 main.js:199 accountMosaicOwned(http):  {data: Array(11)}
+```
+
+### nem1.chain
+
+#### nem1.chain.height
+
+- api
+
+https://nemlovely1.supernode.me:7891/chain/height
+
+http://nemlovely1.supernode.me:7890/chain/height
+
+- code example
+
+```js
+import { nem1 } from "./nem1-sdk.js";
+(async () => {
+    const httpsNodeUrl = "https://nemlovely1.supernode.me";
+    const httpNodeUrl = "http://nemlovely1.supernode.me";
+    const chainHeightHttps = await nem1.chain.height(httpsNodeUrl);
+    console.log("chainHeight(https): ", chainHeightHttps);
+    const chainHeightHttp = await nem1.chain.height(httpNodeUrl);
+    console.log("chainHeight(http): ", chainHeightHttp);
+})();
+```
+
+- result (json)
+
+```json
+{"height":2501758}
+```
+
+- result (all)
+
+```
+proxyFetch.js:9 {height: 2501766}
+main.js:207 chainHeight(https):  {height: 2501766}
+usualFetch.js:6 {height: 2501766}
+main.js:209 chainHeight(http):  {height: 2501766}
 ```
