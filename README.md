@@ -29,7 +29,7 @@ Linked API can be used. Not linked API is now on development.
 1. [nem1.chain](#nem1chain)
     1. [nem1.chain.height](#nem1chainheight)
     1. [nem1.chain.score](#nem1chainscore)
-    1. nem1.chain.last-block
+    1. [nem1.chain.lastBlock](#nem1chainlastBlock)
 1. nem1.node
     1. nem1.node.info
     1. nem1.node.extended-info
@@ -1143,6 +1143,89 @@ import { nem1 } from "./nem1-sdk.js";
 
 ```json
 {"score":"0e8604914c523c591e"}
+```
+
+- result (all)
+
+```
+proxyFetch.js:9 {score: "0e86043d175e83ed9e"}
+main.js:217 chainScore(https):  {score: "0e86043d175e83ed9e"}
+usualFetch.js:6 {score: "0e86043d175e83ed9e"}
+main.js:219 chainScore(http):  {score: "0e86043d175e83ed9e"}
+```
+
+#### nem1.chain.lastBlock
+
+- api
+
+https://nemlovely1.supernode.me:7891/chain/last-block
+
+http://nemlovely1.supernode.me:7890/chain/last-block
+
+- code example
+
+```js
+await (async () => {
+    const httpsNodeUrl = "https://nemlovely1.supernode.me";
+    const httpNodeUrl = "http://nemlovely1.supernode.me";
+    const chainLastBlockHttps = await nem1.chain.lastBlock(httpsNodeUrl);
+    console.log("chainLastBlock(https): ", chainLastBlockHttps);
+    const chainLastBlockHttp = await nem1.chain.lastBlock(httpNodeUrl);
+    console.log("chainLastBlock(http): ", chainLastBlockHttp);
+})();
+```
+
+- result (json)
+
+```json
+{
+	"timeStamp": 151795395,
+	"signature": "69d2edf5f9065f03fbdf87f2dd6f74e793df0089a8cd0d5522e123b2c181dcb72dfb95aa0a251cabd167146f678aeb4bbd52b375fcf0ef05f44193de657ba901",
+	"prevBlockHash": {
+		"data": "e10ec3756dee6d78b08a253374715039abe7c0da213aeaf61a65cd6c7c19510e"
+	},
+	"type": 1,
+	"transactions": [{
+		"timeStamp": 151795281,
+		"amount": 1000000,
+		"signature": "4202d0232d81a4503907a66482b677e64576b8c40cf740e61a0ad46f6ef7102b304f72b66bc3f8569cb35b38a27d966e3d7907d15f3d9fb67a4ebfd6b74af400",
+		"fee": 50000,
+		"recipient": "NATAW23QBGZAZI4B4HLZGWCA4UINHUF37F7ZI4ZP",
+		"mosaics": [{
+			"quantity": 1500,
+			"mosaicId": {
+				"namespaceId": "rubyplaynetwork",
+				"name": "ruby"
+			}
+		}],
+		"type": 257,
+		"deadline": 151881681,
+		"message": {},
+		"version": 1744830466,
+		"signer": "bb053caad60b5b8587475f06cb41284e15cd5de48dd9fb58fb9d928fc42cde3d"
+	}, {
+		"timeStamp": 151795283,
+		"amount": 1000000,
+		"signature": "7ca8cdc87d63eb0e2ce583e75d3df1e0c9d3e0cd9e0094ecda379a25093851c459a96bd7ff5407641f857086290d46769cd0facb650193842b39f06b5e16f60b",
+		"fee": 50000,
+		"recipient": "NDV2U5O7RROGOJP2XVP7EWBBFYCW67SI5RZ25KIG",
+		"mosaics": [{
+			"quantity": 1200,
+			"mosaicId": {
+				"namespaceId": "rubyplaynetwork",
+				"name": "ruby"
+			}
+		}],
+		"type": 257,
+		"deadline": 151881683,
+		"message": {},
+		"version": 1744830466,
+		"signer": "14d676b496124ba0cb446d2def0a8eea68cc82d74bc647f2ee865b20176b04db"
+	}, ... max 120 repeat],
+	"version": 1744830465,
+	"signer": "c03ce79497758950485d7e140a79f70961ac65ddd7d79204ad4da013bab45fe0",
+	"height": 2508166
+}
 ```
 
 - result (all)
