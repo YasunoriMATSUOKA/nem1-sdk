@@ -218,4 +218,14 @@ import { nem1 } from "./nem1-sdk.js";
         const chainScoreHttp = await nem1.chain.score(httpNodeUrl);
         console.log("chainScore(http): ", chainScoreHttp);
     })();
+
+    //chain/last-block
+    await (async () => {
+        const httpsNodeUrl = "https://nemlovely1.supernode.me";
+        const httpNodeUrl = "http://nemlovely1.supernode.me";
+        //const chainLastBlockHttps = await nem1.chain.lastBlock(httpsNodeUrl);
+        //console.log("chainLastBlock(https): ", chainLastBlockHttps);
+        const chainLastBlockHttp = await nem1.chain.lastBlock(httpNodeUrl);
+        console.log("chainLastBlock(http): ", chainLastBlockHttp);
+    })();
 })();
