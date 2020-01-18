@@ -1231,8 +1231,6 @@ await (async () => {
 - result (all)
 
 ```
-proxyFetch.js:9 {score: "0e86043d175e83ed9e"}
-main.js:217 chainScore(https):  {score: "0e86043d175e83ed9e"}
-usualFetch.js:6 {score: "0e86043d175e83ed9e"}
-main.js:219 chainScore(http):  {score: "0e86043d175e83ed9e"}
+usualFetch.js:6 {timeStamp: 151796183, signature: "eb89bfbfc6d65e6facd30ba1977ba526645fe973c67c8949ea…a170818d56334bdc9faa857b6edfe8c7a4425ab1c3a41c501", prevBlockHash: {…}, type: 1, transactions: Array(120), …}
+main.js:229 chainLastBlock(http):  {timeStamp: 151796183, signature: "eb89bfbfc6d65e6facd30ba1977ba526645fe973c67c8949ea…a170818d56334bdc9faa857b6edfe8c7a4425ab1c3a41c501", prevBlockHash: {…}, type: 1, transactions: Array(120), …}
 ```
