@@ -10,6 +10,6 @@ export const isWss = (rawUrl) => {
     return rawUrl.startsWith("wss://") ? true : false;
 }
 
-export const isws = (rawUrl) => {
+export const isWs = (rawUrl) => {
     return rawUrl.startsWith("ws://") ? true : false;
 }
