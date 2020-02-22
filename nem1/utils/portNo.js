@@ -1,4 +1,4 @@
-import { isHttps, isHttp, isWss, isws } from "./url.js"
+import { isHttps, isHttp, isWss, isWs } from "./url.js"
 
 export const portNo = (rawUrl) => {
     if(isHttps(rawUrl)){
@@ -7,9 +7,9 @@ export const portNo = (rawUrl) => {
         return 7890;
     }else if(isWss(rawUrl)){
         return 7991;
-    }else if(isws(rawUrl)){
+    }else if(isWs(rawUrl)){
         return 7990;
     }else{
-        console.error("Bad Url!");
+        console.error("Bad URL!");
     }
 }
